@@ -3,7 +3,7 @@
 var assert = require('assert')
 var rdf = require('rdf-ext')()
 var testData = require('rdf-test-data')(rdf)
-var testUtils = require('rdf-test-utils')(rdf)
+var testUtils = require('rdf-test-utils')
 var RdfXmlParser = require('../')
 
 var simpleXml = '<?xml version="1.0" encoding="UTF-8"?>' +
@@ -318,12 +318,12 @@ describe('RDF/XML parser', function () {
   })
 
   describe('example data', function () {
-    it('card.json should be parsed', function (done) {
+    it('card.xml should be parsed', function (done) {
       var parser = new RdfXmlParser()
 
       testUtils.p.readFile('support/card.xml', __dirname).then(function (card) {
         return parser.parse(card, null, 'https://www.example.com/john/card')
-      }).then(function (graph) {
+      }).then(function (graph) { console.log(graph.toString())
         return testUtils.p.assertGraphEqual(graph, testData.cardGraph)
       }).then(function () {
         done()
