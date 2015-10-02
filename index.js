@@ -561,7 +561,7 @@ var uriJoin = function(given, base) {
 
 
 // RDF-Interface API
-var rdf = require('rdf-ext')()
+var rdf = require('rdf-ext')
 var util = require('util')
 var DomParser = require('rdf-parser-dom')
 

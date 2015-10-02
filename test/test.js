@@ -1,8 +1,8 @@
 /* global describe, it */
 
 var assert = require('assert')
-var rdf = require('rdf-ext')()
-var testData = require('rdf-test-data')(rdf)
+var rdf = require('rdf-ext')
+var testData = require('rdf-test-data')
 var testUtils = require('rdf-test-utils')
 var RdfXmlParser = require('../')
 
