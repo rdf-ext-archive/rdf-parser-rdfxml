@@ -38,7 +38,7 @@ describe('RDF/XML parser', function () {
         var counter = 0
 
         parser.process(simpleXml, function (triple) {
-          if (triple.subject.toString() === 'http://example.org/subject') {
+          if (triple.subject.equals('http://example.org/subject')) {
             counter++
           }
         }, 'http://example.org/').then(function () {
@@ -194,7 +194,7 @@ describe('RDF/XML parser', function () {
         var counter = 0
 
         RdfXmlParser.process(simpleXml, function (triple) {
-          if (triple.subject.toString() === 'http://example.org/subject') {
+          if (triple.subject.equals('http://example.org/subject')) {
             counter++
           }
         }, 'http://example.org/').then(function () {
