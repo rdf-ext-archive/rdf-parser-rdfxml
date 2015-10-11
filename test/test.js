@@ -323,7 +323,7 @@ describe('RDF/XML parser', function () {
 
       testUtils.p.readFile('support/card.xml', __dirname).then(function (card) {
         return parser.parse(card, null, 'https://www.example.com/john/card')
-      }).then(function (graph) { console.log(graph.toString())
+      }).then(function (graph) {
         return testUtils.p.assertGraphEqual(graph, testData.cardGraph)
       }).then(function () {
         done()
