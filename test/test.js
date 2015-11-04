@@ -1,5 +1,4 @@
 /* global describe, it */
-
 var assert = require('assert')
 var rdf = require('rdf-ext')
 var testData = require('rdf-test-data')
@@ -321,11 +320,11 @@ describe('RDF/XML parser', function () {
     it('card.xml should be parsed', function (done) {
       var parser = new RdfXmlParser()
 
-      testUtils.p.readFile('support/card.xml', __dirname).then(function (card) {
+      testUtils.readFile('support/card.xml', __dirname).then(function (card) {
         return parser.parse(card, null, 'https://www.example.com/john/card')
       }).then(function (graph) {
-        return testUtils.p.assertGraphEqual(graph, testData.cardGraph)
-      }).then(function () {
+        assert(testData.cardGraph.equals(graph))
+
         done()
       }).catch(function (error) {
         done(error)
@@ -343,7 +342,7 @@ describe('RDF/XML parser', function () {
         delete rdf.prefixes.foaf
       }
 
-      testUtils.p.readFile('support/card.json', __dirname).then(function (card) {
+      testUtils.readFile('support/card.json', __dirname).then(function (card) {
         return parser.parse(card, null, 'https://www.example.com/john/card')
       }).then(function () {
         assert.equal(rdf.prefixes.cert, 'http://www.w3.org/ns/auth/cert#')
