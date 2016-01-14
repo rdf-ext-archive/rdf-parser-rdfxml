@@ -1,6 +1,6 @@
 {
   "name": "rdf-parser-rdfxml",
-  "version": "0.3.0-rc1",
+  "version": "0.3.0",
   "description": "RDF/XML parser that follows the RDF Interface specification",
   "main": "index.js",
   "scripts": {
@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-parser-rdfxml",
   "dependencies": {
-    "rdf-ext": "^0.3.0-rc1",
-    "rdf-parser-dom": "^0.3.0-rc1"
+    "rdf-ext": "^0.3.0",
+    "rdf-parser-dom": "^0.3.0"
   },
   "devDependencies": {
     "mocha": "^2.3.3",
-    "rdf-test-data": "^0.3.0-rc1",
-    "rdf-test-utils": "^0.3.0-rc1"
+    "rdf-test-data": "^0.3.0",
+    "rdf-test-utils": "^0.3.0"
   }
 }
