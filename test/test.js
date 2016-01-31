@@ -331,6 +331,18 @@ describe('RDF/XML parser', function () {
       })
     })
 
+    it('install.rdf should be parsed', function (done) {
+      var parser = new RdfXmlParser()
+
+      testUtils.readFile('support/install.rdf', __dirname).then(function (rdf) {
+        return parser.parse(rdf);
+      }).then(function () {
+        done()
+      }).catch(function (error) {
+        done(error)
+      })
+    })
+
     /* it('card.json should feed prefix map', function (done) {
       var parser = new RdfXmlParser()
 

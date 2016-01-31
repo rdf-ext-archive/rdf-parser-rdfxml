@@ -293,7 +293,7 @@ var RdfLibParser = function(store){
         }
         if ( ! frame.parent || ! frame.parent.nodeType || frame.parent.nodeType === frame.ARC){
           // we need a node
-          var about = this.getAttributeNodeNS(dom, RDFParser.ns.RDF, "about");
+          var about = this.getAttributeNodeNS(dom, RDFParser.ns.RDF, "about") || this.getAttributeNodeNS(dom, null, "about");
           rdfid = this.getAttributeNodeNS(dom, RDFParser.ns.RDF, "ID");
           if (about && rdfid){
             throw new Error("RDFParser: " + dom.nodeName + " has both rdf:id and rdf:about." +
