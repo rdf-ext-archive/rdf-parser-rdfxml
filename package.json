@@ -1,6 +1,6 @@
 {
   "name": "rdf-parser-rdfxml",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "RDF/XML parser that follows the RDF Interface specification",
   "main": "index.js",
   "scripts": {
