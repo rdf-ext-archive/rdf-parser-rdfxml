@@ -562,14 +562,14 @@ var uriJoin = function(given, base) {
 
 // RDF-Interface API
 var rdf = require('rdf-ext')
-var util = require('util')
+var inherits = require('inherits')
 var DomParser = require('rdf-parser-dom')
 
 var RdfXmlParser = function () {
   DomParser.call(this, rdf)
 }
 
-util.inherits(RdfXmlParser, DomParser)
+inherits(RdfXmlParser, DomParser)
 
 RdfXmlParser.prototype.process = function (toparse, callback, base, filter, done) {
   var self = this;
