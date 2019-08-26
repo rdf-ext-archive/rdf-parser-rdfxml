@@ -12,6 +12,13 @@ var simpleXml = '<?xml version="1.0" encoding="UTF-8"?>' +
     '</rdf:Description>' +
     '</rdf:RDF>';
 
+var xmlWithLiteral = '<?xml version="1.0" encoding="UTF-8"?>' +
+    '<rdf:RDF xmlns:e="http://example.org/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">' +
+    '<rdf:Description rdf:about="subject">' +
+    '<e:predicate rdf:parseType="Literal">txt</e:predicate>' +
+    '</rdf:Description>' +
+    '</rdf:RDF>';
+
 describe('RDF/XML parser', function () {
   describe('instance API', function () {
     describe('process', function () {
@@ -169,6 +176,23 @@ describe('RDF/XML parser', function () {
         })
       })
     })
+
+    describe('literal', function () {
+      it('should be supported', function (done) {
+        var parser = new RdfXmlParser()
+
+        parser.parse(xmlWithLiteral).then(function (graph) {
+          var textResult = graph._graph[0].object.toString();
+          if (textResult !== 'txt') {
+            done('wrong literal value')
+          } else {
+            done()
+          }
+        }).catch(function (error) {
+          done(error)
+        })
+      })
+    });
   })
 
   describe('static API', function () {
@@ -314,6 +338,23 @@ describe('RDF/XML parser', function () {
         })
       })
     })
+
+    describe('literal', function () {
+      it('should be supported', function (done) {
+        var parser = new RdfXmlParser()
+
+        parser.parse(xmlWithLiteral).then(function (graph) {
+          var textResult = graph._graph[0].object.toString();
+          if (textResult !== 'txt') {
+            done('wrong literal value')
+          } else {
+            done()
+          }
+        }).catch(function (error) {
+          done(error)
+        })
+      })
+      });
   })
 
   describe('example data', function () {

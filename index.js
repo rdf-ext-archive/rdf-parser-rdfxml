@@ -584,7 +584,7 @@ RdfXmlParser.prototype.process = function (toparse, callback, base, filter, done
       var xmlString = '';
 
       for(var i=0; i<nodes.length; i++) {
-        xmlString += nodes[i].toString();
+        xmlString += nodes[i].nodeValue;
       }
 
       return xmlString;
